@@ -27,7 +27,6 @@
 
         html {
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
 
         body {
@@ -266,22 +265,20 @@
             display: flex;
             align-items: flex-start;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 0;
         }
 
         .hero-image {
             width: 100%;
-            max-width: 400px;
-            height: auto;
-            aspect-ratio: 3/4;
-            border-radius: 15px;
+            height: 100%;
+            border-radius: 0;
             object-fit: cover;
             object-position: center top;
             filter: contrast(1.1) brightness(1.1);
             transition: all 1s ease;
             animation: zoomIn 2s ease-out;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: none;
+            border: none;
         }
 
         @keyframes zoomIn {
@@ -297,8 +294,8 @@
 
         .hero-image:hover {
             filter: contrast(1.2) brightness(1.2);
-            transform: scale(1.03);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transform: scale(1.02);
+            box-shadow: none;
         }
 
         /* Image Overlay Effects */
@@ -764,14 +761,14 @@
             }
 
             .hero-image-section {
-                padding: 20px 20px;
+                padding: 0;
                 align-items: flex-start;
             }
 
             .hero-image {
                 width: 100%;
-                max-width: 300px;
-                border-radius: 30px;
+                height: 100%;
+                border-radius: 0;
             }
 
             .hero-title {
@@ -854,7 +851,7 @@
     <section id="hero" class="hero">
         <!-- Left Side - Image -->
         <div class="hero-image-section">
-            <img src="Haithem.jpg" alt="Haithem Jemaa" class="hero-image">
+            <img src="me.jpg" alt="Haithem Jemaa" class="hero-image">
             <div class="image-overlay"></div>
             <div class="particles">
                 <div class="particle" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
