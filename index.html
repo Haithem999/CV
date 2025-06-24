@@ -32,9 +32,10 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
             background: var(--bg-dark);
             color: var(--text-light);
+            margin: 0;
+            padding: 0;
         }
 
         /* Custom Cursor Light Effect */
@@ -584,6 +585,8 @@
             transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .experience-card::before {
@@ -791,6 +794,8 @@
 
             .experience-card {
                 padding: 30px;
+                opacity: 1 !important;
+                transform: translateY(0) !important;
             }
 
             .experience-header {
@@ -1907,16 +1912,26 @@
                     setTimeout(() => {
                         entry.target.style.opacity = '1';
                         entry.target.style.transform = 'translateY(0)';
+                        entry.target.classList.add('card-visible');
                     }, Math.random() * 500);
                 }
             });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -20px 0px'
         });
 
         document.querySelectorAll('.experience-card').forEach(card => {
             // Only apply animation to non-education cards
             if (!card.closest('.education-section')) {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(50px)';
+                // Set initial state but make sure cards are visible on mobile
+                if (window.innerWidth <= 768) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(50px)';
+                }
                 card.style.transition = 'all 0.8s ease';
                 cardObserver.observe(card);
             }
